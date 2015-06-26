@@ -22,6 +22,10 @@ get '/changes/:commit/files/?' do
   changed_files params[:commit]
 end
 
+get '/head/?' do
+  repository.head.target.oid
+end
+
 def pull_request
   payload = JSON.parse request_body
   puts payload
