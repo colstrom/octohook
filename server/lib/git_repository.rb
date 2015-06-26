@@ -12,4 +12,12 @@ module GitRepository
     commit = repository.lookup commit_id
     commit.parents.first.diff(commit).deltas.map { |delta| delta.new_file[:path] }
   end
+
+  def changed_components(commit_id)
+    changed_files(commit_id).select {
+      |filename| filename.start_with? 'src'
+    }.map {
+      |filename| filename.split('/').at(1)
+    }.compact.uniq
+  end
 end
