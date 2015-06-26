@@ -8,7 +8,7 @@ module GitHubPayload
 
   Contract nil => Maybe[String]
   def request_signature
-    request.env.fetch 'HTTP_X_GITHUB_EVENT', nil
+    request.env.fetch 'HTTP_X_HUB_SIGNATURE', nil
   end
 
   Contract nil => String
