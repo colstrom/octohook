@@ -3,6 +3,7 @@ require 'contracts'
 
 REPOSITORY_PATH = ENV.fetch('REPOSITORY_PATH').freeze
 
+# Module for interacting with a local git repository
 module GitRepository
   include Contracts
 
