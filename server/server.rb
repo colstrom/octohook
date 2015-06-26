@@ -3,7 +3,7 @@ require 'json'
 require 'octokit'
 require 'secure_compare'
 
-ACCESS_TOKEN = ENV.fetch('GITHUB_SECRET').freeze
+GITHUB_SECRET = ENV.fetch('GITHUB_SECRET').freeze
 
 def request_signature
   request.env.fetch 'HTTP_X_GITHUB_EVENT', nil
