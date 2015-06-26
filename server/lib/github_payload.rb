@@ -3,6 +3,7 @@ require 'contracts'
 
 GITHUB_SECRET = ENV.fetch('GITHUB_SECRET').freeze
 
+# Module for handling GitHub payloads
 module GitHubPayload
   include Contracts
 
