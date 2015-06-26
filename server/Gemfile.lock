@@ -2,6 +2,7 @@ GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.3.8)
+    contracts (0.9)
     faraday (0.9.1)
       multipart-post (>= 1.2, < 3)
     json (1.8.3)
@@ -26,6 +27,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  contracts
   json
   octokit
   rugged
