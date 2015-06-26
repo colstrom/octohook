@@ -29,7 +29,7 @@ end
 
 post '/payload/?' do
   return 403 unless valid_signature?
-  handler = request.env['HTTP_X_GITHUB_EVENT'].to_sym
+  handler = request.env.fetch('HTTP_X_GITHUB_EVENT', 'default').to_sym
   method(handler).call if methods.include? handler
 end
 
