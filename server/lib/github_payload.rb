@@ -7,10 +7,6 @@ module GitHubPayload
     request.env.fetch 'HTTP_X_GITHUB_EVENT', nil
   end
 
-  def unsigned?
-    request_signature.nil?
-  end
-
   def request_body
     request.body.rewind.read
   end
@@ -21,7 +17,7 @@ module GitHubPayload
   end
 
   def valid_signature?
-    return false if unsigned?
+    return false unless request_signature
     SecureCompare.compare request_signature, body_signature
   end
 end
