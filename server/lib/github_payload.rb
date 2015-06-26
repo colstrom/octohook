@@ -20,7 +20,7 @@ module GitHubPayload
 
   Contract nil => String
   def body_signature
-    digest = OpenSSL::Digest.new 'sha1'
+    digest = OpenSSL::Digest::SHA1.new
     "sha1=#{OpenSSL::HMAC.hexdigest digest, GITHUB_SECRET, request_body}"
   end
 
