@@ -11,22 +11,21 @@ include GitRepository
 post '/payload/?' do
   return 403 unless valid_signature?
   handler = request.env.fetch('HTTP_X_GITHUB_EVENT', 'default').to_sym
-  method(handler).call if methods.include? handler
+  method(handler).call(JSON.parse request_body) if methods.include? handler
 end
 
 get '/changes/:commit/components/?' do
-  changed_components params[:commit]
+  JSON.dump changed_components params[:commit]
 end
 
 get '/changes/:commit/files/?' do
-  changed_files params[:commit]
+  JSON.dump changed_files params[:commit]
 end
 
 get '/head/?' do
-  repository.head.target.oid
+  JSON.dump repository.head.target.oid
 end
 
-def pull_request
-  payload = JSON.parse request_body
+def pull_request(payload)
   puts payload
 end
