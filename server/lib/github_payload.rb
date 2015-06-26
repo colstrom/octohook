@@ -13,7 +13,8 @@ module GitHubPayload
 
   Contract nil => String
   def request_body
-    request.body.rewind.read
+    request.body.rewind
+    request.body.read
   end
 
   Contract nil => String
