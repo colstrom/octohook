@@ -12,18 +12,16 @@ module GitRepository
     Rugged::Repository.new REPOSITORY_PATH
   end
 
-  Contract String => ArrayOf[String]
-  def changed_files(commit_id)
-    return [] unless repository.exists? commit_id
-    commit = repository.lookup commit_id
-    commit.parents.first.diff(commit).deltas.map do |delta|
-      delta.new_file[:path]
-    end
+  Contract String, String => ArrayOf[String]
+  def changed_files(head_commit, base_commit)
+    head = repository.lookup(head_commit)
+    base = repository.lookup(base_commit)
+    base.diff(head).deltas.map { |delta| delta.new_file[:path] }
   end
 
-  Contract String => ArrayOf[String]
-  def changed_components(commit_id)
-    relevant = changed_files(commit_id).select do |filename|
+  Contract String, String => ArrayOf[String]
+  def changed_components(head_commit, base_commit)
+    relevant = changed_files(head_commit, base_commit).select do |filename|
       filename.start_with? 'src'
     end
     relevant.map { |filename| filename.split('/').at(1) }.compact.uniq
