@@ -9,7 +9,7 @@ module GitRepository
 
   Contract nil => Rugged::Repository
   def repository
-    Rugged::Repository.new REPOSITORY_PATH
+    @repository ||= Rugged::Repository.new REPOSITORY_PATH
   end
 
   Contract String, String => ArrayOf[String]
