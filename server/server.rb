@@ -14,12 +14,14 @@ post '/payload/?' do
   method(handler).call(JSON.parse request_body) if methods.include? handler
 end
 
-get '/changes/:commit/components/?' do
-  JSON.dump changed_components params[:commit]
-end
+get '/changes/?:head?/?:base?/:aspect/?' do
+  head = params.fetch 'head', repository.head.target.oid
+  return 404 unless repository.exists? head
 
-get '/changes/:commit/files/?' do
-  JSON.dump changed_files params[:commit]
+  base = params.fetch 'base', repository.lookup(head).parents.first.oid
+  return 404 unless repository.exists? base
+
+  JSON.dump method("changed_#{params[:aspect]}").call(head, base)
 end
 
 get '/head/?' do
