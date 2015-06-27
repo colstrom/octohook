@@ -29,5 +29,8 @@ get '/head/?' do
 end
 
 def pull_request(payload)
-  puts payload
+  return 204 unless %w(opened synchronize).include? payload['action']
+  head = payload['pull_request']['head']['sha']
+  base = payload['pull_request']['base']['sha']
+  puts changed_components(head, base)
 end
