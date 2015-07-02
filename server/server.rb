@@ -16,6 +16,8 @@ post '/payload/?' do
 end
 
 get '/changes/?:head?/?:base?/:aspect/?' do
+  return 404 unless %w(files components).include? params[:aspect]
+
   head = params.fetch 'head', repository.head.target.oid
   return 404 unless repository.exists? head
 
