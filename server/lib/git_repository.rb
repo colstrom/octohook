@@ -1,7 +1,7 @@
 require 'rugged'
 require 'contracts'
 
-REPOSITORY_PATH = ENV.fetch('REPOSITORY_PATH').freeze
+require_relative 'config'
 
 # Module for interacting with a local git repository
 module GitRepository
@@ -9,7 +9,7 @@ module GitRepository
 
   Contract nil => Rugged::Repository
   def repository
-    @repository ||= Rugged::Repository.new REPOSITORY_PATH
+    @repository ||= Rugged::Repository.new CONFIG['repository']['path']
   end
 
   Contract String, String => ArrayOf[String]
