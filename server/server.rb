@@ -12,6 +12,7 @@ post '/payload/?' do
   return 403 unless valid_signature?
   handler = request.env.fetch('HTTP_X_GITHUB_EVENT', 'default').to_sym
   method(handler).call(JSON.parse request_body) if methods.include? handler
+  204  # Acknowledge valid request (with or without handler), return no content.
 end
 
 get '/changes/?:head?/?:base?/:aspect/?' do
