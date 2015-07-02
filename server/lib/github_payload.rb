@@ -1,11 +1,12 @@
 require 'secure_compare'
 require 'contracts'
-
-GITHUB_SECRET = ENV.fetch('GITHUB_SECRET').freeze
+require_relative 'config'
 
 # Module for handling GitHub payloads
 module GitHubPayload
   include Contracts
+
+  GITHUB_SECRET = (ENV['GITHUB_SECRET'] || CONFIG['github']['secret']).freeze
 
   Contract nil => Maybe[String]
   def request_signature
