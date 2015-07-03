@@ -16,7 +16,9 @@ module GitRepository
   def changed_files(head_commit, base_commit)
     head = repository.lookup(head_commit)
     base = repository.lookup(base_commit)
-    base.diff(head).deltas.map { |delta| delta.new_file[:path] }
+    base.diff(head).deltas.flat_map do |delta|
+      [delta.new_file[:path], delta.old_file[:path]]
+    end.compact.uniq
   end
 
   Contract String, String => ArrayOf[String]
