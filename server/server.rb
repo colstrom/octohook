@@ -1,12 +1,15 @@
 require 'sinatra'
 require 'json'
 require 'octokit'
+require 'typhoeus'
 
 require_relative 'lib/github_payload'
 require_relative 'lib/git_repository'
+require_relative 'lib/jenkins'
 
 include GitHubPayload
 include GitRepository
+include JenkinsSupport
 
 post '/payload/?' do
   return 403 unless valid_signature?
@@ -35,5 +38,9 @@ def pull_request(payload)
   return 204 unless %w(opened synchronize).include? payload['action']
   head = payload['pull_request']['head']['sha']
   base = payload['pull_request']['base']['sha']
-  puts changed_components(head, base)
+  jobs = Typhoeus::Hydra.new
+  changed_components(head, base).each do |component|
+    jobs.queue jenkins_job(component)
+  end
+  jobs.run
 end
