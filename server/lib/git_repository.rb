@@ -21,9 +21,9 @@ module GitRepository
 
   Contract String, String => ArrayOf[String]
   def changed_components(head_commit, base_commit)
-    relevant = changed_files(head_commit, base_commit).select do |filename|
-      filename.start_with? 'src'
+    changes = changed_files(head_commit, base_commit)
+    CONFIG['components'].keys.select do |path|
+      changes.any? { |filename| filename.start_with? path }
     end
-    relevant.map { |filename| filename.split('/').at(1) }.compact.uniq
   end
 end
