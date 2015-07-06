@@ -9,6 +9,6 @@ cd $PWD           # Jump into the path of ./start.sh
 IMAGE_NAME=$(./build.sh) # Get the name of the image
 
 if [ "$IMAGE_NAME" != "" ]; then
-        docker run -P -d $IMAGE_NAME
+        docker run -P -e "JENKINS_SECRET=$JENKINS_SECRET" -e "GITHUB_SECRET=$GITHUB_SECRET" -d $IMAGE_NAME
 fi
 
