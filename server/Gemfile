@@ -6,3 +6,4 @@ gem 'secure_compare'
 gem 'rugged'
 gem 'contracts'
 gem 'typhoeus'
+ruby "2.2.0"

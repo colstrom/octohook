@@ -1,12 +1,16 @@
 applications:
 - name: git-webhook
-  description: ActiveState Github webhook to trigger Jenkins builds from github.com:ActiveState/stackato-release.git
   mem: 128M
   disk: 200M
   buildpack: https://github.com/cloudfoundry/buildpack-ruby
   # buildpack: https://github.com/cloudfoundry/ruby-buildpack/archive/v1.5.0.zip
   command: ruby server.rb
   stackato:
+    description: ActiveState Github webhook to trigger Jenkins builds from github.com:ActiveState/stackato-release.git
+    requirements:
+      staging:
+        ubuntu:
+          - cmake
     env:
       JENKINS_SECRET:
         required: y
