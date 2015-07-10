@@ -38,6 +38,9 @@ components:
   src/stackato-tools:      stackato_tools-image
   src/stackon:             stackon-image
   src/supervisord:         supervisord-image
+  src/docker-registry:     docker-registry
+  src/docker-base-images/base: docker-base
+  src/stackato-app-stacks: stackato-app-stacks
 
 #TODO: Jenkins job to create
   # src/docker-registry:     docker-registry # (see repo stackato-image-factory)
