@@ -41,6 +41,8 @@ components:
   src/docker-registry:     docker-registry
   src/docker-base-images/base: docker-base
   src/stackato-app-stacks: stackato-app-stacks
+  src/docker-base-images/base-redis: docker-base-redis
+  src/docker-base-images/base-mdns: docker-base-mdns
 
 #TODO: Jenkins job to create
   # src/docker-registry:     docker-registry # (see repo stackato-image-factory)
