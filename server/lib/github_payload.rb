@@ -1,4 +1,4 @@
-require 'secure_compare'
+require 'fast_secure_compare/fast_secure_compare'
 require 'contracts'
 require_relative 'config'
 
@@ -28,6 +28,6 @@ module GitHubPayload
   Contract nil => Bool
   def valid_signature?
     return false unless request_signature
-    SecureCompare.compare request_signature, body_signature
+    FastSecureCompare.compare request_signature, body_signature
   end
 end
