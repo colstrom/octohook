@@ -2,6 +2,9 @@ applications:
 - name: git-webhook
   buildpack: https://github.com/ActiveState/ruby-buildpack.git#v1.3.0
   command: ruby server.rb
+  services:
+    git-webhook-persistence:
+      type: filesystem
   stackato:
     description: ActiveState Github webhook to trigger Jenkins builds from github.com:ActiveState/stackato-release.git
     requirements:
