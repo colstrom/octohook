@@ -12,7 +12,7 @@ module GitRepository
     "#{ENV[CONFIG['repository']['env']]}/#{CONFIG['repository']['path']}"
   end
 
-  Contract nil => Rugged::Repository
+  Contract None => Rugged::Repository
   def repository
     @repository ||= Rugged::Repository.new repository_path
   end
