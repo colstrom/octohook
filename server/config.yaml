@@ -6,7 +6,8 @@ jenkins:
 github:
   secret: GITHUB_AUTH_TOKEN_GOES_HERE
 repository:
-  path: /Users/colstrom/Projects/activestate/stackato-release-st
+  env: STACKATO_FILESYSTEM
+  path: upstream
 components:
   src/aok:                 aok-image
   src/appstore:            appstore-image
