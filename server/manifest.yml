@@ -1,7 +1,5 @@
 applications:
 - name: git-webhook
-  mem: 128M
-  disk: 200M
   buildpack: https://github.com/ActiveState/ruby-buildpack.git#v1.3.0
   command: ruby server.rb
   stackato:
@@ -21,4 +19,3 @@ applications:
         prompt: "Github secret: "
   url:
     - git-webhook.activestate.com
-
