@@ -7,9 +7,14 @@ require_relative 'config'
 module GitRepository
   include Contracts
 
+  Contract None => String
+  def repository_path
+    "#{ENV[CONFIG['repository']['env']]}/#{CONFIG['repository']['path']}"
+  end
+
   Contract nil => Rugged::Repository
   def repository
-    @repository ||= Rugged::Repository.new CONFIG['repository']['path']
+    @repository ||= Rugged::Repository.new repository_path
   end
 
   Contract String, String => ArrayOf[String]
