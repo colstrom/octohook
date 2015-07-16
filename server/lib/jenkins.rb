@@ -2,6 +2,7 @@ require 'contracts'
 require 'typhoeus'
 require_relative 'config'
 
+# Module for interacting with a Jenkins server.
 module JenkinsSupport
   include Contracts
 
@@ -10,10 +11,11 @@ module JenkinsSupport
   Contract String, String => Typhoeus::Request
   def jenkins_job(component, commit_hash)
     url = "#{CONFIG['jenkins']['base_url']}/#{component}/buildWithParameters"
-    Typhoeus::Request.new(url, method: 'POST', params: {
+    params = {
       token: JENKINS_SECRET,
       STACKATO_RELEASE_IDENTIFIER: commit_hash,
       cause: 'WebHook+Triggered'
-    })
+    }
+    Typhoeus::Request.new(url, method: 'POST', params: params)
   end
 end
