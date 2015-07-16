@@ -8,7 +8,7 @@ applications:
   stackato:
     hooks:
       pre-running:
-        - sh support/preconfigure.sh
+        - support/preconfigure.sh
     description: ActiveState Github webhook to trigger Jenkins builds from github.com:ActiveState/stackato-release.git
     requirements:
       staging:
