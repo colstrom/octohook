@@ -7,7 +7,7 @@ github:
   secret: GITHUB_AUTH_TOKEN_GOES_HERE
 repository:
   env: STACKATO_FILESYSTEM
-  path: upstream
+  path: stackato-release-st
 components:
   src/aok:                 aok-image
   src/appstore:            appstore-image
