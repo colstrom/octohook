@@ -18,16 +18,14 @@ post '/payload/?' do
   204  # Acknowledge valid request (with or without handler), return no content.
 end
 
-get '/changes/?:head?/?:base?/:aspect/?' do
-  return 404 unless %w(files components).include? params[:aspect]
-
+get '/changes/?:head?/?:base?/?' do
   head = params.fetch 'head', repository.head.target.oid
   return 404 unless repository.exists? head
 
   base = params.fetch 'base', repository.lookup(head).parents.first.oid
   return 404 unless repository.exists? base
 
-  JSON.dump method("changed_#{params[:aspect]}").call(head, base)
+  JSON.dump changed_components(head, base)
 end
 
 get '/head/?' do
