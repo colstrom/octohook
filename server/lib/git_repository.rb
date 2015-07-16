@@ -19,8 +19,8 @@ module GitRepository
 
   Contract String, String => ArrayOf[String]
   def changed_files(head_commit, base_commit)
-    head = repository.lookup(head_commit)
-    base = repository.lookup(base_commit)
+    head = repository.lookup head_commit
+    base = repository.lookup base_commit
     base.diff(head).deltas.flat_map do |delta|
       [delta.new_file[:path], delta.old_file[:path]]
     end.compact.uniq
@@ -28,7 +28,7 @@ module GitRepository
 
   Contract String, String => ArrayOf[String]
   def changed_components(head_commit, base_commit)
-    changes = changed_files(head_commit, base_commit)
+    changes = changed_files head_commit, base_commit
     CONFIG['components'].keys.select do |path|
       changes.any? { |filename| filename.start_with? path }
     end
