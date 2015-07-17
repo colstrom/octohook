@@ -38,16 +38,22 @@ components:
   src/stackato-tools:      stackato_tools-image
   src/stackon:             stackon-image
   src/supervisord:         supervisord-image
+
+  # Docker images
   src/docker-registry:     docker-registry
-  src/docker-base-images/base: docker-base
   src/stackato-app-stacks: stackato-app-stacks
+  src/docker-base-images/base: docker-base
   src/docker-base-images/base-redis: docker-base-redis
   src/docker-base-images/base-mdns: docker-base-mdns
+  src/confdis/server: config-redis
+  src/logyard-apps/apptail/redis-server: applog-redis
+  src/services/base/services-redis: services-redis
+  src/services/harbor/harbor-redis: harbor-redis
+  src/stackato/misc/ephemeral-redis: ephemeral-redis
   src/appmdns: appmdns
+  src/appstore/deployer: appstore-deployer
 
 #TODO: Jenkins job to create
-  # src/docker-registry:     docker-registry # (see repo stackato-image-factory)
-  # src/stackato-app-stacks: stackato-app-stacks # (see repo stackato-image-factory: stack-alsek)
   # src/packer:              stackato-image-builder
   # src/sentinel:            stackato-image-provisioner
 
@@ -65,18 +71,6 @@ components:
 # - go
 # - nodejs
 # - gem_bundler
-
-# Docker images
-  # src/docker-base-images/base:            docker-stackato-base
-  # src/docker-base-images/base-redis:      docker-base-redis
-  # src/docker-base-images/base-go:         docker-base-go
-  # src/confdis/server:                     config-redis
-  # src/logyard-apps/apptail/redis-server:  applog-redis
-  # src/services/base/services-redis:       services-redis
-  # src/services/harbor/harbor-redis:       harbor-redis
-  # src/appstore/deployer:                  appstore-deployer
-  # src/stackato/misc/ephemeral-redis:      ephemeral-redis
-  # src/appmdns:                            appmdns
 
   # What's the role of wscat with logyard: tool for dev
   # activestate/wscat
