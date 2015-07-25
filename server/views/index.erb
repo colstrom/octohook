@@ -1,0 +1,36 @@
+<html>
+  <head>
+    <title>WebHook Support System</title>
+    <link rel="stylesheet" href="/static/vendor/marx.min.css" />
+    <link rel="stylesheet" href="/static/vendor/octicons.css" />
+  </head>
+
+  <body>
+    <main>
+      <h1>WebHook Support System</h1>
+      <h2><span class="mega-octicon octicon-git-commit"></span> <%= Git.repository.head.target.oid %></h2>
+      <section id="configuration">
+        <table>
+          <thead>
+            <th>Base Commit</th>
+            <th>Head Commit</th>
+          </thead>
+          <tr>
+            <td>
+              <input type="text" name="base" id="base-commit" size="43" placeholder="<%= Git.repository.lookup(Git.repository.head.target.oid).parents.first.oid %>" />
+            </td>
+            <td>
+              <input type="text" name="head" id="head-commit" size="43" placeholder="<%= Git.repository.head.target.oid %>" />
+            </td>
+          </tr>
+        </table>
+        <center><button id="get-changed-components"><span class="octicon octicon-eye"></span> What Changed?</button></center>
+      </section>
+      <hr />
+      <section id="changelog">
+      </section>
+    </main>
+    <script type="text/javascript" src="/static/vendor/fermata.js"></script>
+    <script type="text/javascript" src="/static/index.js"></script>
+  </body>
+</html>

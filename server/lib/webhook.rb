@@ -1,0 +1,5 @@
+require_relative 'webhook/config'
+require_relative 'webhook/events'
+require_relative 'webhook/git'
+require_relative 'webhook/jenkins'
+require_relative 'webhook/payloads'
