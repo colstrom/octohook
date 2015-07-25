@@ -1,6 +1,6 @@
 applications:
 - name: git-webhook
-  buildpack: https://github.com/ActiveState/ruby-buildpack.git#v1.3.0
+  buildpack: "https://github.com/ActiveState/ruby-buildpack.git#v1.3.0"
   command: ruby server.rb
   services:
     git-webhook-persistence:
