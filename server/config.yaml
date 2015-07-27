@@ -2,9 +2,7 @@
 jenkins:
   base_url: 'http://jenkins.activestate.com/view/Stackato%20components/job/component_image_jobs/job'
   cause: 'WebHook+Triggered'
-  secret: JENKINS_AUTH_TOKEN_GOES_HERE
 github:
-  secret: GITHUB_AUTH_TOKEN_GOES_HERE
   repository: activestate/stackato-release-st
 repository:
   env: STACKATO_FILESYSTEM
