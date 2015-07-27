@@ -25,20 +25,5 @@ module Repository
         [delta.new_file[:path], delta.old_file[:path]]
       end.compact.uniq
     end
-
-    Contract String, String => ArrayOf[String]
-    def self.changed_components(head_commit, base_commit)
-      changes = changed_files head_commit, base_commit
-      CONFIG['components'].keys.select do |path|
-        changes.any? { |filename| filename.start_with? path }
-      end
-    end
-
-    Contract String, String => ArrayOf[String]
-    def self.changes_for_humans(head_commit, base_commit)
-      changed_components(head_commit, base_commit).map do |name|
-        name.sub(%r{^src/(services/)?}, '').sub(/_ng$/, '').sub('_', ' ')
-      end
-    end
   end
 end
