@@ -1,6 +1,6 @@
 require 'contracts'
 require 'typhoeus'
-require_relative '../git'
+require_relative '../repository'
 require_relative '../jenkins'
 
 module Events
@@ -13,7 +13,7 @@ module Events
       return 204 unless %w(opened synchronize).include? payload['action']
       data = payload['pull_request']
       tell_jenkins_to_build(
-        Git.changed_components(data['head']['sha'], data['base']['sha']),
+        Repository::Local.changed_components(data['head']['sha'], data['base']['sha']),
         job_parameters(payload['pull_request'])
       )
     end

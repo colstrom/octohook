@@ -19,15 +19,15 @@ post '/payload/?' do
 end
 
 get '/changes/?:head?/?:base?/?' do
-  head = params.fetch 'head', Git.repository.head.target.oid
-  return 404 unless Git.repository.exists? head
+  head = params.fetch 'head', Repository::Local.repository.head.target.oid
+  return 404 unless Repository::Local.repository.exists? head
 
-  base = params.fetch 'base', Git.repository.lookup(head).parents.first.oid
-  return 404 unless Git.repository.exists? base
+  base = params.fetch 'base', Repository::Local.repository.lookup(head).parents.first.oid
+  return 404 unless Repository::Local.repository.exists? base
 
-  JSON.dump Git.changed_components(head, base)
+  JSON.dump Repository::Local.changed_components(head, base)
 end
 
 get '/head/?' do
-  JSON.dump Git.repository.head.target.oid
+  JSON.dump Repository::Local.repository.head.target.oid
 end
