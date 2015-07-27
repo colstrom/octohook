@@ -5,6 +5,7 @@ jenkins:
   secret: JENKINS_AUTH_TOKEN_GOES_HERE
 github:
   secret: GITHUB_AUTH_TOKEN_GOES_HERE
+  repository: activestate/stackato-release-st
 repository:
   env: STACKATO_FILESYSTEM
   path: stackato-release-st
