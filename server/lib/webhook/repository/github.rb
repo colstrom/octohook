@@ -1,7 +1,6 @@
 require 'contracts'
 require 'octokit'
 require_relative 'components'
-require 'pry'
 
 module Repository
   # module for dealing with remote repository.
