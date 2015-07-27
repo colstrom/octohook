@@ -1,2 +1,3 @@
-require_relative 'repository/changes'
+require_relative 'repository/components'
+require_relative 'repository/github'
 require_relative 'repository/local'
