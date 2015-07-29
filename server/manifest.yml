@@ -15,6 +15,10 @@ applications:
       GITHUB_SECRET:
         required: y
         inherit: y
-        prompt: "Github secret: "
+        prompt: "GitHub Secret (for payload signing): "
+      GITHUB_ACCESS_TOKEN:
+        required: y
+        inherit: y
+        prompt: "GitHub Access Token (for API calls): "
   url:
     - git-webhook.activestate.com
