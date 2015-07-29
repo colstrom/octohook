@@ -12,8 +12,9 @@ module Events
     def self.pull_request(payload)
       return 204 unless %w(opened synchronize).include? payload['action']
       data = payload['pull_request']
+      changed_files = Repository::GitHub.changes_in_pull_request data['number']
       tell_jenkins_to_build(
-        Repository::Local.changed_components(data['head']['sha'], data['base']['sha']),
+        Repository::Components.changed(changed_files),
         job_parameters(payload['pull_request'])
       )
     end
