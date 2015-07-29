@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby "2.2.0"
+
 gem 'contracts'
 gem 'fast_secure_compare'
 gem 'json'
