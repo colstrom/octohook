@@ -1,9 +1,9 @@
 require 'contracts'
 require 'fast_secure_compare/fast_secure_compare'
 
-module Payloads
+module GitHub
+  module Payload
   # Mixin for handling GitHub payloads.
-  module GitHub
     include Contracts
 
     Contract None => Maybe[String]

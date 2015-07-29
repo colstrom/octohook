@@ -1,10 +1,9 @@
 require 'contracts'
 require 'octokit'
-require_relative 'components'
 
-module Repository
+module GitHub
   # module for dealing with remote repository.
-  module GitHub
+  module Repository
     include Contracts
 
     REPOSITORY = CONFIG['github']['repository'].freeze

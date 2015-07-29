@@ -1,20 +1,21 @@
 require 'contracts'
 require 'typhoeus'
-require_relative '../repository'
+require_relative 'repository'
+require_relative '../components'
 require_relative '../jenkins'
 
-module Events
+module GitHub
+  module Events
   # Module for handling GitHub Events.
-  module GitHub
     include Contracts
 
     Contract Hash => Any
     def self.pull_request(payload)
       return 204 unless %w(opened synchronize).include? payload['action']
       data = payload['pull_request']
-      changed_files = Repository::GitHub.changes_in_pull_request data['number']
+      changed_files = GitHub::Repository.changes_in_pull_request data['number']
       tell_jenkins_to_build(
-        Repository::Components.changed(changed_files),
+        Components.changed(changed_files),
         job_parameters(payload['pull_request'])
       )
     end

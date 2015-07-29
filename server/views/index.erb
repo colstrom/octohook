@@ -8,7 +8,7 @@
   <body>
     <main>
       <h1>WebHook Support System</h1>
-      <h2><span class="mega-octicon octicon-git-commit"></span> <%= Repository::GitHub.head %></h2>
+      <h2><span class="mega-octicon octicon-git-commit"></span> <%= GitHub::Repository.head %></h2>
       <section id="configuration">
         <table>
           <thead>
@@ -17,10 +17,10 @@
           </thead>
           <tr>
             <td>
-              <input type="text" name="base" id="base-commit" size="43" placeholder="<%= Repository::GitHub.parent(Repository::GitHub.head) %>" />
+              <input type="text" name="base" id="base-commit" size="43" placeholder="<%= GitHub::Repository.parent(GitHub::Repository.head) %>" />
             </td>
             <td>
-              <input type="text" name="head" id="head-commit" size="43" placeholder="<%= Repository::GitHub.head %>" />
+              <input type="text" name="head" id="head-commit" size="43" placeholder="<%= GitHub::Repository.head %>" />
             </td>
           </tr>
         </table>
