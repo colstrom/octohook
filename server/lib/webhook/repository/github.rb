@@ -18,13 +18,13 @@ module Repository
     # Returns the default branch name.
     Contract None => String
     def self.default_branch
-      client.repository(REPOSITORY)[:default_branch]
+      client.repository(REPOSITORY)[:default_branch] || 'master'
     end
 
     # Given a branch, returns the ID of the latest commit for that branch.
     Contract Maybe[({branch: String})] => String
     def self.head(branch: default_branch)
-      client.branch(REPOSITORY, 'master')[:commit][:sha]
+      client.branch(REPOSITORY, branch)[:commit][:sha]
     end
 
     # Given a commit, returns the parent of that commit.
@@ -34,13 +34,14 @@ module Repository
     end
 
     # Given a pull request ID, returns a list of files changed in it.
-    Contract String, RespondTo[:to_i] => ArrayOf[String]
+    Contract RespondTo[:to_i] => ArrayOf[String]
     def self.changes_in_pull_request(pull_request_id)
       client.pull_request_files(REPOSITORY, pull_request_id).map do |file|
         file[:filename]
       end
     end
 
+    # Given two commits, returns a list of changed files between them.
     def self.changed_files(head_commit, base_commit)
       client.compare(REPOSITORY, base_commit, head_commit)[:files].map do |file|
         file[:filename]
