@@ -4,7 +4,7 @@ ruby "2.2.0"
 
 gem 'contracts'
 gem 'fast_secure_compare'
-gem 'json'
+gem 'oj'
 gem 'octokit'
 gem 'sinatra'
 gem 'typhoeus'
