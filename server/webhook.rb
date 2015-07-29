@@ -34,7 +34,3 @@ get '/changes/?:head?/?:base?/?' do
   changed_files = Repository::GitHub.changed_files head, base
   JSON.dump Repository::Components.changed changed_files
 end
-
-get '/head/?' do
-  JSON.dump Repository::Local.repository.head.target.oid
-end
