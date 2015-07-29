@@ -7,16 +7,19 @@ module Repository
   module Local
     include Contracts
 
+    # Returns the path of the local repository.
     Contract None => String
     def self.path
       "#{ENV[CONFIG['repository']['env']]}/#{CONFIG['repository']['path']}"
     end
 
+    # Returns the local repository object.
     Contract None => Rugged::Repository
     def self.repository
       @repository ||= Rugged::Repository.new path
     end
 
+    # Given two commits, returns a list of files that changed between them.
     Contract String, String => ArrayOf[String]
     def self.changed_files(head_commit, base_commit)
       head = repository.lookup head_commit
