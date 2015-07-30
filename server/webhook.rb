@@ -12,9 +12,10 @@ include GitHub::Payload
 
 post '/payload/?' do
   return 403 unless valid_signature? || settings.development? || settings.test?
-  event = request.env.fetch('HTTP_X_GITHUB_EVENT', 'default').to_sym
-  handler = GitHub::Events
+  request.body.rewind
   payload = Oj.load request.body.read
+  handler = GitHub::Events
+  event = request.env.fetch('HTTP_X_GITHUB_EVENT', 'default').to_sym
   handler.method(event).call(payload) if handler.methods.include? event
 end
 
