@@ -24,10 +24,12 @@ module GitHub
     # Given a pull request, returns a human-friendly description of it.
     Contract Hash => String
     def self.describe(pull_request)
-      "WebHook triggered by Pull Request #{pull_request['number']}," \
-      " proposing a merge of #{pull_request['head']['ref']}" \
-      " into #{pull_request['base']['ref']}" \
-      " at commit #{pull_request['head']['sha']}"
+      [
+        "WebHook triggered by Pull Request #{pull_request['number']},",
+        "proposing a merge of #{pull_request['head']['ref']}",
+        "into #{pull_request['base']['ref']}",
+        "at commit #{pull_request['head']['sha']}"
+      ].join ' '
     end
 
     # Given a payload, returns parameters for a Jenkins job.
