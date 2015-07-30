@@ -11,7 +11,11 @@ module GitHub
     # Returns an authenticated GitHub client.
     Contract None => Octokit::Client
     def self.client
-      @client ||= Octokit::Client.new access_token: ENV['GITHUB_ACCESS_TOKEN'], auto_paginate: true
+      options = {
+        access_token: ENV['GITHUB_ACCESS_TOKEN'],
+        auto_paginate: true
+      }
+      @client ||= Octokit::Client.new options
     end
 
     # Returns the default branch name.
@@ -21,7 +25,7 @@ module GitHub
     end
 
     # Given a branch, returns the ID of the latest commit for that branch.
-    Contract Maybe[({branch: String})] => String
+    Contract Maybe[({ branch: String })] => String
     def self.head(branch: default_branch)
       client.branch(REPOSITORY, branch)[:commit][:sha]
     end
