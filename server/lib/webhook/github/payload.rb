@@ -15,6 +15,7 @@ module GitHub
     def body_signature
       digest = OpenSSL::Digest::SHA1.new
       secret = ENV['GITHUB_SECRET']
+      request.body.rewind
       "sha1=#{OpenSSL::HMAC.hexdigest digest, secret, request.body.read}"
     end
 
