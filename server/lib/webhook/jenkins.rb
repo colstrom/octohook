@@ -6,6 +6,7 @@ require_relative 'config'
 module Jenkins
   include Contracts
 
+  # Returns a request object for a Jenkins job.
   Contract String, HashOf[Symbol, String] => Typhoeus::Request
   def self.job(component, at_commit:, using_branch:, description:)
     job_name = CONFIG['components'][component]
