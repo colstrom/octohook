@@ -5,10 +5,11 @@ require_relative '../components'
 require_relative '../jenkins'
 
 module GitHub
-  module Events
   # Module for handling GitHub Events.
+  module Events
     include Contracts
 
+    # Handles a pull request event.
     Contract Hash => Any
     def self.pull_request(payload)
       return 204 unless %w(opened synchronize).include? payload['action']
@@ -16,15 +17,20 @@ module GitHub
       changed_files = GitHub::Repository.changes_in_pull_request data['number']
       tell_jenkins_to_build(
         Components.changed(changed_files),
-        job_parameters(payload['pull_request'])
+        job_parameters(data)
       )
     end
 
+    # Given a pull request, returns a human-friendly description of it.
     Contract Hash => String
     def self.describe(pull_request)
-      "WebHook triggered by Pull Request #{pull_request['number']}, proposing a merge of #{pull_request['head']['ref']} into #{pull_request['base']['ref']} at commit #{pull_request['head']['sha']}"
+      "WebHook triggered by Pull Request #{pull_request['number']}," \
+      " proposing a merge of #{pull_request['head']['ref']}" \
+      " into #{pull_request['base']['ref']}" \
+      " at commit #{pull_request['head']['sha']}"
     end
 
+    # Given a payload, returns parameters for a Jenkins job.
     Contract Hash => Hash
     def self.job_parameters(payload)
       {
@@ -34,6 +40,7 @@ module GitHub
       }
     end
 
+    # Given a list of changed components, queues a Jenkins job for each one.
     Contract ArrayOf[String], HashOf[Symbol, String] => Any
     def self.tell_jenkins_to_build(components, **parameters)
       components
