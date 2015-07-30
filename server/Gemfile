@@ -8,3 +8,7 @@ gem 'oj'
 gem 'octokit'
 gem 'sinatra'
 gem 'typhoeus'
+
+group 'development' do
+  gem 'rspec'
+end
