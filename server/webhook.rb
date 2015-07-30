@@ -11,7 +11,7 @@ end
 include GitHub::Payload
 
 post '/payload/?' do
-  return 403 unless valid_signature? || settings.development? || settings.test?
+  return 403 unless valid_signature?
   request.body.rewind
   payload = Oj.load request.body.read
   handler = GitHub::Events
