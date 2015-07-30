@@ -1,6 +1,7 @@
 require 'contracts'
 require_relative 'config'
 
+# Module for dealing with components.
 module Components
   include Contracts
 
