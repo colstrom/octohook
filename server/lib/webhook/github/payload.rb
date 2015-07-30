@@ -2,19 +2,13 @@ require 'contracts'
 require 'fast_secure_compare/fast_secure_compare'
 
 module GitHub
-  module Payload
   # Mixin for handling GitHub payloads.
+  module Payload
     include Contracts
 
     Contract None => Maybe[String]
     def request_signature
       request.env['HTTP_X_HUB_SIGNATURE']
-    end
-
-    Contract None => String
-    def request_body
-      request.body.rewind
-      request.body.read
     end
 
     Contract None => String
