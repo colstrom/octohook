@@ -1,0 +1,9 @@
+applications:
+- name: webhook-overseer
+  buildpack: "https://github.com/cloudfoundry/ruby-buildpack.git#v1.4.2"
+  services:
+    pipeline: redis
+  stackato:
+    description: Webhook Queue Overseer
+  url:
+    - overseer.indevops.com
