@@ -1,0 +1,20 @@
+applications:
+- name: webhook-dispatcher
+  buildpack: "https://github.com/cloudfoundry/ruby-buildpack.git#v1.4.2"
+  mem: 128M
+  services:
+    pipeline: redis
+  stackato:
+    description: Webhook Dispatcher
+    env:
+      JENKINS_BASE_URL: 'http://jenkins.activestate.com/view/Stackato%20components/job/component_image_jobs/job'
+      JENKINS_SECRET:
+        required: y
+        inherit: y
+        prompt: "Jenkins secret: "
+      GITHUB_REPOSITORY: ActiveState/stackato
+      GITHUB_ACCESS_TOKEN:
+        required: y
+        inherit: y
+        prompt: "GitHub Access Token (for API calls): "
+  url: []
