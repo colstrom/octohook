@@ -1,0 +1,10 @@
+applications:
+- name: webhook-identifier
+  buildpack: "https://github.com/cloudfoundry/ruby-buildpack.git#v1.4.2"
+  mem: 128M
+  disk:
+  services:
+    pipeline: redis
+  stackato:
+    description: Webhook Component Identifier
+  url: []

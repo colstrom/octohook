@@ -1,0 +1,45 @@
+---
+src/aok:                 aok-image
+src/appstore:            appstore-image
+src/cloud_controller_ng: cloud_controller_ng-image
+src/console:             console-image
+src/dea_ng:              dea_ng-image
+src/doc:                 doc-image
+src/etcd:                etcd-image
+src/fence:               fence-image
+src/gnatsd:              gnatsd-image
+src/health_manager:      health_manager-image
+src/kato:                kato-image
+src/loggregator:         loggregator-image
+src/logyard-apps-lgr:    logyard_apps_lgr-image
+src/logyard-apps:        logyard_apps-image
+src/logyard:             logyard-image
+src/router:              router-image
+src/services/base:       services__base-image
+src/services/filesystem: services__filesystem-image
+src/services/harbor:     services__harbor-image
+src/services/memcached:  services__memcached-image
+src/services/mongodb:    services__mongodb-image
+src/services/mysql:      services__mysql-image
+src/services/postgresql: services__postgresql-image
+src/services/rabbitmq:   services__rabbitmq-image
+src/services/redis:      services__redis-image
+src/setup-etc:           setup_etc-image
+src/stackato-rest:       stackato_rest-image
+src/stackato-tools:      stackato_tools-image
+src/stackon:             stackon-image
+src/supervisord:         supervisord-image
+
+# Docker images
+src/docker-registry:     docker-registry
+src/stackato-app-stacks: stackato-app-stacks
+src/docker-base-images/base: docker-base
+src/docker-base-images/base-redis: docker-base-redis
+src/docker-base-images/base-mdns: docker-base-mdns
+src/confdis/server: config-redis
+src/logyard-apps/apptail/redis-server: applog-redis
+src/services/base/services-redis: services-redis
+src/services/harbor/harbor-redis: harbor-redis
+src/stackato/misc/ephemeral-redis: ephemeral-redis
+src/appmdns: appmdns
+src/appstore/deployer: appstore-deployer

@@ -1,0 +1,8 @@
+source 'https://rubygems.org'
+
+gem 'contracts'
+gem 'kanban'
+gem 'octokit'
+gem 'multi_json'
+
+ruby '2.2.2'
