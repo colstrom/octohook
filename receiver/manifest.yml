@@ -1,0 +1,14 @@
+applications:
+- name: webhook-receiver
+  buildpack: "https://github.com/cloudfoundry/ruby-buildpack.git#v1.4.2"
+  services:
+    pipeline: redis
+  stackato:
+    description: Webhook Receiver
+    env:
+      GITHUB_SECRET:
+        required: y
+        inherit: y
+        prompt: "GitHub Secret (for payload signing): "
+  url:
+    - receiver.indevops.com
