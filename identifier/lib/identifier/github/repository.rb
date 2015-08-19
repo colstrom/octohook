@@ -6,7 +6,7 @@ module GitHub
   module Repository
     include Contracts
 
-    REPOSITORY = ENV['REPOSITORY'].freeze
+    REPOSITORY = ENV['GITHUB_REPOSITORY'].freeze
 
     # Returns an authenticated GitHub client.
     Contract None => Octokit::Client
