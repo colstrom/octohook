@@ -40,7 +40,7 @@ Eye.application :webhook do
 
     process :identifier do
       environment 'PORT' => 9911
-      environment 'REPOSITORY' => 'ActiveState/stackato'
+      environment 'GITHUB_REPOSITORY' => 'ActiveState/stackato'
       start_command 'bundle exec ruby service.rb'
       working_dir "#{WORKSPACE}/identifier"
     end
