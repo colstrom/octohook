@@ -4,6 +4,22 @@ require 'redis'
 
 module Overseer
   module Support
+    module Pipeline
+      include Contracts
+
+      KNOWN_QUEUES = %w(incoming dispatching pending tracking reporting).freeze
+
+      Contract None => Hash
+      def order
+        @order ||= Hash.new(-1).merge KNOWN_QUEUES.each_with_index.take(5).to_h
+      end
+
+      Contract None => ArrayOf[String]
+      def pipeline
+        redis.smembers('overseer:queues').sort { |a, b| order[a] <=> order[b] }
+      end
+    end
+
     module Throttle
       include Contracts
 
