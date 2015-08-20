@@ -13,7 +13,7 @@ Thread.new do
   worker.work do |id, spec|
     job = Jenkins.dispatch Jenkins::Job.new spec
     job.on_complete do |response|
-      return unless response.success?
+      next unless response.success?
       worker.intake.complete id
       worker.output.add spec.merge({ 'url' => response.headers['Location'] })
     end
@@ -27,7 +27,7 @@ Thread.new do
   worker.work do |id, spec|
     job = Jenkins.poll spec['url']
     job.on_complete do |response|
-      return unless response.success?
+      next unless response.success?
       payload = MultiJson.load response.body
       if payload['executable']
         worker.intake.complete id
@@ -44,7 +44,7 @@ Thread.new do
   worker.work do |id, spec|
     job = Jenkins.poll spec['url']
     job.on_complete do |response|
-      return unless response.success?
+      next unless response.success?
       payload = MultiJson.load response.body
       GitHub.update_status spec, 'pending'
       if payload['result']
