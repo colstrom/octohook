@@ -1,6 +1,6 @@
 ---
 src/aok:                 aok-image
-src/appstore:            appstore-image
+src/appstore:            appstore
 src/cloud_controller_ng: cloud_controller_ng-image
 src/console:             console-image
 src/dea_ng:              dea_ng-image
