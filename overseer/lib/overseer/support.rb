@@ -16,7 +16,9 @@ module Overseer
 
       Contract None => ArrayOf[String]
       def pipeline
-        redis.smembers('overseer:queues').sort { |a, b| order[a] <=> order[b] }
+        redis.smembers('overseer:queues')
+          .reject { |q| q == 'incoming' }
+          .sort { |a, b| order[a] <=> order[b] }
       end
     end
 
