@@ -10,6 +10,10 @@ class PullRequest
     @repository = details['head']['repo']['full_name']
   end
 
+  def github
+    @github ||= Octokit::Client.new auto_paginate: true, access_token: ENV['GITHUB_ACCESS_TOKEN']
+  end
+
   def describe
     [
       "WebHook triggered by Pull Request #{@number},",
@@ -18,12 +22,16 @@ class PullRequest
     ].join ' '
   end
 
+  def commits
+    @commits ||= github.pull_request_commits @repository, @number
+  end
+
   def changed_files
     @changed_files ||= GitHub::Repository.changes_in_pull_request @number
   end
 
   def changed_components
-    @changed_components ||= Components.changed(changed_files)
+    @changed_components ||= commits.length == 250 ? Components.table.keys : Components.changed(changed_files)
   end
 
   def jobs
