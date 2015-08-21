@@ -20,7 +20,7 @@ module Overseer
     Contract String => ArrayOf[Hash]
     def history(queue)
       redis.keys("#{queue}:task:*")
-        .select { |task| task.match /\d$/ }
+        .select { |key| redis.type(key) == 'hash' }
         .map do |task|
           redis.hgetall(task).merge({ 'id' => task.split(':').last.to_i })
         end
