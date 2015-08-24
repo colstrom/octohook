@@ -28,6 +28,7 @@ Thread.new do
   worker.work do |id, spec|
     job = Jenkins.poll spec['url']
     job.on_complete do |response|
+      worker.intake.complete(id) if worker.redis.get("pending:task:#{id}:response:201")
       worker.redis.incr "pending:task:#{id}:response:#{response.code}"
       next unless response.success?
       payload = MultiJson.load response.body
