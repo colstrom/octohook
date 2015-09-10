@@ -1,0 +1,11 @@
+{
+  "id": 5,
+  "component": "src/appstore",
+  "job": "appstore-image",
+  "pull_request": "2",
+  "head_sha": "6550c5bd5d4232dc05a1deb627092fc67be933b9",
+  "head_ref": "marky-test-import-master",
+  "base_ref": "301820-switch-to-subtree",
+  "description": "WebHook triggered by Pull Request 2, proposing a merge of marky-test-import-master into 301820-switch-to-subtree at commit 6550c5bd5d4232dc05a1deb627092fc67be933b9",
+  "repository": "ActiveState/stackato"
+}

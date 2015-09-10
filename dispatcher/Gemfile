@@ -1,0 +1,14 @@
+source 'https://rubygems.org'
+
+gem 'contracts'
+gem 'kanban'
+gem 'multi_json'
+gem 'typhoeus'
+gem 'octokit'
+gem 'pry'
+
+group 'development' do
+  gem 'rspec'
+end
+
+ruby '2.2.2'
