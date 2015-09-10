@@ -60,7 +60,6 @@ Thread.new do
       worker.redis.incr "tracking:task:#{id}:response:#{response.code}"
       next unless response.success?
       payload = MultiJson.load response.body
-      GitHub.update_status spec, 'pending'
       if payload['result']
         worker.intake.complete id
         worker.redis.hset "tracking:task:#{id}", 'finished', Time.now.utc.iso8601
