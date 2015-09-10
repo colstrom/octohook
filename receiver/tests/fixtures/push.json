@@ -1,0 +1,278 @@
+{
+  "ref": "refs/heads/302084-loggregator-internal-release-01",
+  "before": "9f77dfcb6146eeb91826e4654d6580720889c4e2",
+  "after": "93b34ec6bc37cdd45cffdadcd6a85e7b2f69f83d",
+  "created": false,
+  "deleted": false,
+  "forced": false,
+  "base_ref": null,
+  "compare": "https://github.com/ActiveState/stackato/compare/9f77dfcb6146...93b34ec6bc37",
+  "commits": [
+    {
+      "id": "b3e00c23d5a0ec808a4c85ad6795780c71e51674",
+      "distinct": false,
+      "message": "302386 added timeLine events to apptail handler\n- fixed broken tests",
+      "timestamp": "2015-08-28T19:37:09-07:00",
+      "url": "https://github.com/ActiveState/stackato/commit/b3e00c23d5a0ec808a4c85ad6795780c71e51674",
+      "author": {
+        "name": "Nino Khodabandeh",
+        "email": "ninok@activestate.com",
+        "username": "Nino-K"
+      },
+      "committer": {
+        "name": "Nino Khodabandeh",
+        "email": "ninok@activestate.com",
+        "username": "Nino-K"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "src/logyard-apps-lgr/apptail/instance.go",
+        "src/logyard-apps-lgr/docker_events/cmd/docker_events/main.go",
+        "src/logyard-apps-lgr/metron_emitter/apptail_handler.go",
+        "src/logyard-apps-lgr/metron_emitter/apptail_handler_test.go",
+        "src/logyard-apps-lgr/metron_emitter/docker_events_handler.go",
+        "src/logyard-apps-lgr/metron_emitter/docker_handler_test.go",
+        "src/logyard-apps-lgr/metron_emitter/fake_dependency.go",
+        "src/logyard-apps-lgr/metron_emitter/fake_emitter.go"
+      ]
+    },
+    {
+      "id": "1de0e983a90dd5bed62b84bddfa8490272b9ae00",
+      "distinct": false,
+      "message": "302386 added dropsonde handler as a property in instance.go to avoid\ninjection into individual methods.\ncleaned up fake_emitter emittedMessages collection",
+      "timestamp": "2015-08-31T09:32:39-07:00",
+      "url": "https://github.com/ActiveState/stackato/commit/1de0e983a90dd5bed62b84bddfa8490272b9ae00",
+      "author": {
+        "name": "Nino Khodabandeh",
+        "email": "ninok@activestate.com",
+        "username": "Nino-K"
+      },
+      "committer": {
+        "name": "Nino Khodabandeh",
+        "email": "ninok@activestate.com",
+        "username": "Nino-K"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "src/logyard-apps-lgr/apptail/cmd/apptail/main.go",
+        "src/logyard-apps-lgr/apptail/instance.go",
+        "src/logyard-apps-lgr/metron_emitter/fake_emitter.go"
+      ]
+    },
+    {
+      "id": "04e4782269dbacaef6a1e1848ae18f60dc80df7e",
+      "distinct": false,
+      "message": "PR updates",
+      "timestamp": "2015-08-31T15:34:54-07:00",
+      "url": "https://github.com/ActiveState/stackato/commit/04e4782269dbacaef6a1e1848ae18f60dc80df7e",
+      "author": {
+        "name": "Nino Khodabandeh",
+        "email": "ninok@activestate.com",
+        "username": "Nino-K"
+      },
+      "committer": {
+        "name": "Nino Khodabandeh",
+        "email": "ninok@activestate.com",
+        "username": "Nino-K"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "src/logyard-apps-lgr/docker_events/cmd/docker_events/main.go",
+        "src/logyard-apps-lgr/metron_emitter/apptail_handler.go",
+        "src/logyard-apps-lgr/metron_emitter/apptail_handler_test.go"
+      ]
+    },
+    {
+      "id": "93b34ec6bc37cdd45cffdadcd6a85e7b2f69f83d",
+      "distinct": true,
+      "message": "Merge remote-tracking branch 'origin/302386-timeline-events-support-for-loggregator' into 302084-loggregator-internal-release-01",
+      "timestamp": "2015-08-31T15:41:15-07:00",
+      "url": "https://github.com/ActiveState/stackato/commit/93b34ec6bc37cdd45cffdadcd6a85e7b2f69f83d",
+      "author": {
+        "name": "Nino Khodabandeh",
+        "email": "ninok@activestate.com",
+        "username": "Nino-K"
+      },
+      "committer": {
+        "name": "Nino Khodabandeh",
+        "email": "ninok@activestate.com",
+        "username": "Nino-K"
+      },
+      "added": [
+
+      ],
+      "removed": [
+
+      ],
+      "modified": [
+        "src/logyard-apps-lgr/apptail/cmd/apptail/main.go",
+        "src/logyard-apps-lgr/apptail/instance.go",
+        "src/logyard-apps-lgr/docker_events/cmd/docker_events/main.go",
+        "src/logyard-apps-lgr/metron_emitter/apptail_handler.go",
+        "src/logyard-apps-lgr/metron_emitter/apptail_handler_test.go",
+        "src/logyard-apps-lgr/metron_emitter/docker_events_handler.go",
+        "src/logyard-apps-lgr/metron_emitter/docker_handler_test.go",
+        "src/logyard-apps-lgr/metron_emitter/fake_dependency.go",
+        "src/logyard-apps-lgr/metron_emitter/fake_emitter.go"
+      ]
+    }
+  ],
+  "head_commit": {
+    "id": "93b34ec6bc37cdd45cffdadcd6a85e7b2f69f83d",
+    "distinct": true,
+    "message": "Merge remote-tracking branch 'origin/302386-timeline-events-support-for-loggregator' into 302084-loggregator-internal-release-01",
+    "timestamp": "2015-08-31T15:41:15-07:00",
+    "url": "https://github.com/ActiveState/stackato/commit/93b34ec6bc37cdd45cffdadcd6a85e7b2f69f83d",
+    "author": {
+      "name": "Nino Khodabandeh",
+      "email": "ninok@activestate.com",
+      "username": "Nino-K"
+    },
+    "committer": {
+      "name": "Nino Khodabandeh",
+      "email": "ninok@activestate.com",
+      "username": "Nino-K"
+    },
+    "added": [
+
+    ],
+    "removed": [
+
+    ],
+    "modified": [
+      "src/logyard-apps-lgr/apptail/cmd/apptail/main.go",
+      "src/logyard-apps-lgr/apptail/instance.go",
+      "src/logyard-apps-lgr/docker_events/cmd/docker_events/main.go",
+      "src/logyard-apps-lgr/metron_emitter/apptail_handler.go",
+      "src/logyard-apps-lgr/metron_emitter/apptail_handler_test.go",
+      "src/logyard-apps-lgr/metron_emitter/docker_events_handler.go",
+      "src/logyard-apps-lgr/metron_emitter/docker_handler_test.go",
+      "src/logyard-apps-lgr/metron_emitter/fake_dependency.go",
+      "src/logyard-apps-lgr/metron_emitter/fake_emitter.go"
+    ]
+  },
+  "repository": {
+    "id": 37285819,
+    "name": "stackato",
+    "full_name": "ActiveState/stackato",
+    "owner": {
+      "name": "ActiveState",
+      "email": null
+    },
+    "private": true,
+    "html_url": "https://github.com/ActiveState/stackato",
+    "description": "flat structure for all of stackato",
+    "fork": false,
+    "url": "https://github.com/ActiveState/stackato",
+    "forks_url": "https://api.github.com/repos/ActiveState/stackato/forks",
+    "keys_url": "https://api.github.com/repos/ActiveState/stackato/keys{/key_id}",
+    "collaborators_url": "https://api.github.com/repos/ActiveState/stackato/collaborators{/collaborator}",
+    "teams_url": "https://api.github.com/repos/ActiveState/stackato/teams",
+    "hooks_url": "https://api.github.com/repos/ActiveState/stackato/hooks",
+    "issue_events_url": "https://api.github.com/repos/ActiveState/stackato/issues/events{/number}",
+    "events_url": "https://api.github.com/repos/ActiveState/stackato/events",
+    "assignees_url": "https://api.github.com/repos/ActiveState/stackato/assignees{/user}",
+    "branches_url": "https://api.github.com/repos/ActiveState/stackato/branches{/branch}",
+    "tags_url": "https://api.github.com/repos/ActiveState/stackato/tags",
+    "blobs_url": "https://api.github.com/repos/ActiveState/stackato/git/blobs{/sha}",
+    "git_tags_url": "https://api.github.com/repos/ActiveState/stackato/git/tags{/sha}",
+    "git_refs_url": "https://api.github.com/repos/ActiveState/stackato/git/refs{/sha}",
+    "trees_url": "https://api.github.com/repos/ActiveState/stackato/git/trees{/sha}",
+    "statuses_url": "https://api.github.com/repos/ActiveState/stackato/statuses/{sha}",
+    "languages_url": "https://api.github.com/repos/ActiveState/stackato/languages",
+    "stargazers_url": "https://api.github.com/repos/ActiveState/stackato/stargazers",
+    "contributors_url": "https://api.github.com/repos/ActiveState/stackato/contributors",
+    "subscribers_url": "https://api.github.com/repos/ActiveState/stackato/subscribers",
+    "subscription_url": "https://api.github.com/repos/ActiveState/stackato/subscription",
+    "commits_url": "https://api.github.com/repos/ActiveState/stackato/commits{/sha}",
+    "git_commits_url": "https://api.github.com/repos/ActiveState/stackato/git/commits{/sha}",
+    "comments_url": "https://api.github.com/repos/ActiveState/stackato/comments{/number}",
+    "issue_comment_url": "https://api.github.com/repos/ActiveState/stackato/issues/comments{/number}",
+    "contents_url": "https://api.github.com/repos/ActiveState/stackato/contents/{+path}",
+    "compare_url": "https://api.github.com/repos/ActiveState/stackato/compare/{base}...{head}",
+    "merges_url": "https://api.github.com/repos/ActiveState/stackato/merges",
+    "archive_url": "https://api.github.com/repos/ActiveState/stackato/{archive_format}{/ref}",
+    "downloads_url": "https://api.github.com/repos/ActiveState/stackato/downloads",
+    "issues_url": "https://api.github.com/repos/ActiveState/stackato/issues{/number}",
+    "pulls_url": "https://api.github.com/repos/ActiveState/stackato/pulls{/number}",
+    "milestones_url": "https://api.github.com/repos/ActiveState/stackato/milestones{/number}",
+    "notifications_url": "https://api.github.com/repos/ActiveState/stackato/notifications{?since,all,participating}",
+    "labels_url": "https://api.github.com/repos/ActiveState/stackato/labels{/name}",
+    "releases_url": "https://api.github.com/repos/ActiveState/stackato/releases{/id}",
+    "created_at": 1434056272,
+    "updated_at": "2015-08-27T22:09:31Z",
+    "pushed_at": 1441060852,
+    "git_url": "git://github.com/ActiveState/stackato.git",
+    "ssh_url": "git@github.com:ActiveState/stackato.git",
+    "clone_url": "https://github.com/ActiveState/stackato.git",
+    "svn_url": "https://github.com/ActiveState/stackato",
+    "homepage": null,
+    "size": 284560,
+    "stargazers_count": 0,
+    "watchers_count": 0,
+    "language": "Ruby",
+    "has_issues": true,
+    "has_downloads": true,
+    "has_wiki": false,
+    "has_pages": false,
+    "forks_count": 0,
+    "mirror_url": null,
+    "open_issues_count": 11,
+    "forks": 0,
+    "open_issues": 11,
+    "watchers": 0,
+    "default_branch": "master",
+    "stargazers": 0,
+    "master_branch": "master",
+    "organization": "ActiveState"
+  },
+  "pusher": {
+    "name": "Nino-K",
+    "email": "ninok@activestate.com"
+  },
+  "organization": {
+    "login": "ActiveState",
+    "id": 319781,
+    "url": "https://api.github.com/orgs/ActiveState",
+    "repos_url": "https://api.github.com/orgs/ActiveState/repos",
+    "events_url": "https://api.github.com/orgs/ActiveState/events",
+    "members_url": "https://api.github.com/orgs/ActiveState/members{/member}",
+    "public_members_url": "https://api.github.com/orgs/ActiveState/public_members{/member}",
+    "avatar_url": "https://avatars.githubusercontent.com/u/319781?v=3",
+    "description": null
+  },
+  "sender": {
+    "login": "Nino-K",
+    "id": 10409174,
+    "avatar_url": "https://avatars.githubusercontent.com/u/10409174?v=3",
+    "gravatar_id": "",
+    "url": "https://api.github.com/users/Nino-K",
+    "html_url": "https://github.com/Nino-K",
+    "followers_url": "https://api.github.com/users/Nino-K/followers",
+    "following_url": "https://api.github.com/users/Nino-K/following{/other_user}",
+    "gists_url": "https://api.github.com/users/Nino-K/gists{/gist_id}",
+    "starred_url": "https://api.github.com/users/Nino-K/starred{/owner}{/repo}",
+    "subscriptions_url": "https://api.github.com/users/Nino-K/subscriptions",
+    "organizations_url": "https://api.github.com/users/Nino-K/orgs",
+    "repos_url": "https://api.github.com/users/Nino-K/repos",
+    "events_url": "https://api.github.com/users/Nino-K/events{/privacy}",
+    "received_events_url": "https://api.github.com/users/Nino-K/received_events",
+    "type": "User",
+    "site_admin": false
+  }
+}

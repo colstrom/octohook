@@ -1,0 +1,16 @@
+source 'https://rubygems.org'
+
+gem 'celluloid', '~> 0.16.0'
+gem 'contracts'
+gem 'fast_secure_compare'
+gem 'kanban'
+gem 'rack'
+gem 'rakuna'
+gem 'reel'
+
+group :development do
+  gem 'rspec'
+  gem 'typhoeus'
+end
+
+ruby '2.2.2'
