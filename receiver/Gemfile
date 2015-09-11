@@ -2,10 +2,10 @@ source 'https://rubygems.org'
 
 gem 'celluloid', '~> 0.16.0'
 gem 'contracts'
-gem 'fast_secure_compare'
 gem 'kanban'
 gem 'rack'
-gem 'rakuna'
+gem 'rakuna', '~> 1.0'
+
 gem 'reel'
 
 group :development do

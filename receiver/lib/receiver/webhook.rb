@@ -1,23 +1,29 @@
 require 'kanban'
 require 'rakuna'
-require_relative 'github/payload'
 
 class Webhook < Rakuna::Resource::Action
-  include GitHub::Payload
   include Rakuna::Content::JSON
-  include Rakuna::Content::Validation
-  include Rakuna::Storage::Redis
+  include Rakuna::Validation::Signature
+  include Rakuna::Data::Redis
 
-  def valid?
-    valid_signature?
+  def malformed_request?
+    true unless signature_valid?
   end
 
-  def input
-    backlog.add task
+  def signature_secret
+    ENV['GITHUB_SECRET']
+  end
+
+  def content_signature
+    request.headers['X-Hub-Signature']
+  end
+
+  def execute
+    true if backlog.add task
   end
 
   def event
-    request.headers['X-GITHUB-EVENT']
+    request.headers['X-Github-Event']
   end
 
   private

@@ -1,9 +1,9 @@
 require 'kanban'
 require 'rakuna'
 
-class Status < Webmachine::Resource
-  include Rakuna::Content::JSON
-  include Rakuna::Storage::Redis
+class Status < Rakuna::Resource::Basic
+  include Rakuna::Provides::JSON
+  include Rakuna::Data::Redis
 
   def output
     {
