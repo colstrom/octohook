@@ -8,7 +8,7 @@ module Components
   # Returns a table of { component_path => jenkins_job } mappings.
   Contract None => HashOf[String, String]
   def self.table
-    @table ||= YAML.load_file 'components.yaml'
+    @table ||= YAML.load_file 'config/components.yaml'
   end
 
   # Given a list of changed files, return the components that changed.
