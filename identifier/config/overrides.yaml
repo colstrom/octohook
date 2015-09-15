@@ -1,0 +1,6 @@
+---
+always-build:
+  - docker-base
+  - appmdns
+  - appstore-deployer
+  - stackato-app-stacks
