@@ -11,6 +11,10 @@ module Components
     @table ||= YAML.load_file 'config/components.yaml'
   end
 
+  def self.overrides
+    @overrides ||= YAML.load_file 'config/overrides.yaml'
+  end
+
   # Given a list of changed files, return the components that changed.
   Contract ArrayOf[String] => ArrayOf[String]
   def self.changed(changed_files)
