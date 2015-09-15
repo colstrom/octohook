@@ -20,7 +20,7 @@ module Components
   def self.changed(changed_files)
     table.keys.select do |path|
       changed_files.any? { |filename| filename.start_with? path }
-    end.concat overrides['always-build']
+    end.concat(overrides['always-build']).uniq
   end
 
   # Given a list of changed components, return a human-friendly list.
