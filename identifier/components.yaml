@@ -12,8 +12,6 @@ src/health_manager:      health_manager-image
 src/kato:                kato-image
 src/loggregator:         loggregator-image
 src/logyard-apps-lgr:    logyard_apps_lgr-image
-src/logyard-apps:        logyard_apps-image
-src/logyard:             logyard-image
 src/router:              router-image
 src/services/base:       services__base-image
 src/services/filesystem: services__filesystem-image
