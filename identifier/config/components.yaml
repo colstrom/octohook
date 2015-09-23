@@ -28,6 +28,36 @@ src/stackato-tools:      stackato_tools-image
 src/stackon:             stackon-image
 src/supervisord:         supervisord-image
 
+# Recipes
+recipes/aok.rb:                 aok-image
+recipes/appstore.rb:            appstore
+recipes/cloud_controller_ng.rb: cloud_controller_ng-image
+recipes/console.rb:             console-image
+recipes/dea_ng.rb:              dea_ng-image
+recipes/doc.rb:                 doc-image
+recipes/etcd.rb:                etcd-image
+recipes/fence.rb:               fence-image
+recipes/gnatsd.rb:              gnatsd-image
+recipes/health_manager.rb:      health_manager-image
+recipes/kato.rb:                kato-image
+recipes/loggregator.rb:         loggregator-image
+recipes/logyard-apps-lgr.rb:    logyard_apps_lgr-image
+recipes/router.rb:              router-image
+recipes/services/base.rb:       services__base-image
+recipes/services/filesystem.rb: services__filesystem-image
+recipes/services/harbor.rb:     services__harbor-image
+recipes/services/memcached.rb:  services__memcached-image
+recipes/services/mongodb.rb:    services__mongodb-image
+recipes/services/mysql.rb:      services__mysql-image
+recipes/services/postgresql.rb: services__postgresql-image
+recipes/services/rabbitmq.rb:   services__rabbitmq-image
+recipes/services/redis.rb:      services__redis-image
+recipes/setup-etc.rb:           setup_etc-image
+recipes/stackato-rest.rb:       stackato_rest-image
+recipes/stackato-tools.rb:      stackato_tools-image
+recipes/stackon.rb:             stackon-image
+recipes/supervisord.rb:         supervisord-image
+
 # Docker images
 src/docker-registry:     docker-registry
 src/stackato-app-stacks: stackato-app-stacks
