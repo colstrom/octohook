@@ -1,6 +1,7 @@
 ---
 src/aok:                 aok-image
 src/appstore:            appstore
+src/config_gen:          config_gen
 src/cloud_controller_ng: cloud_controller_ng-image
 src/console:             console-image
 src/dea_ng:              dea_ng-image
@@ -33,6 +34,7 @@ src/warden:              warden-image
 # Recipes
 recipes/aok.rb:                 aok-image
 recipes/appstore.rb:            appstore
+recipes/config_gen:             config_gen
 recipes/cloud_controller_ng.rb: cloud_controller_ng-image
 recipes/console.rb:             console-image
 recipes/dea_ng.rb:              dea_ng-image
