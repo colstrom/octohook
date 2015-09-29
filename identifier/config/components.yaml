@@ -4,6 +4,7 @@ src/appstore:            appstore
 src/cloud_controller_ng: cloud_controller_ng-image
 src/console:             console-image
 src/dea_ng:              dea_ng-image
+src/dea_ng_warden:       dea_ng_warden-image
 src/doc:                 doc-image
 src/etcd:                etcd-image
 src/fence:               fence-image
@@ -27,6 +28,7 @@ src/stackato-rest:       stackato_rest-image
 src/stackato-tools:      stackato_tools-image
 src/stackon:             stackon-image
 src/supervisord:         supervisord-image
+src/warden:              warden-image
 
 # Recipes
 recipes/aok.rb:                 aok-image
@@ -34,6 +36,7 @@ recipes/appstore.rb:            appstore
 recipes/cloud_controller_ng.rb: cloud_controller_ng-image
 recipes/console.rb:             console-image
 recipes/dea_ng.rb:              dea_ng-image
+recipes/dea_ng_warden.rb:       dea_ng_warden-image
 recipes/doc.rb:                 doc-image
 recipes/etcd.rb:                etcd-image
 recipes/fence.rb:               fence-image
@@ -57,6 +60,7 @@ recipes/stackato-rest.rb:       stackato_rest-image
 recipes/stackato-tools.rb:      stackato_tools-image
 recipes/stackon.rb:             stackon-image
 recipes/supervisord.rb:         supervisord-image
+recipes/warden.rb:              warden-image
 
 # Docker images
 src/docker-registry:     docker-registry
