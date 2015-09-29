@@ -75,3 +75,4 @@ src/services/harbor/harbor-redis: harbor-redis
 src/stackato/misc/ephemeral-redis: ephemeral-redis
 src/appmdns: appmdns
 src/appstore/deployer: appstore-deployer
+src/cf-stacks: stack-cflinuxfs2
