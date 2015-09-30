@@ -10,5 +10,6 @@ Manipulating Jenkins and friends with GitHub Webhooks.
 
 # Architecture
 receiver -> identifier -> dispatcher -> reporter
+
 overseer stands off to the side and cleans up queues and stuff and provides some visibility: https://overseer.domain.com/
 
